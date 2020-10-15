@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<form th:action="@{/customer/edit}" method="post" th:object="${customer}">
+<form th:action="@{/customer/edit}" method="post" th:object="${customer}" enctype="multipart/form-data">
     <input type="text" th:field="*{id}" hidden>
     <table>
         <tr>
@@ -22,9 +22,29 @@
         </tr>
         <tr>
             <td>
+                province
+            </td>
+            <td>
+                <select name="province">
+                    <option th:each="p : ${provinces}"
+                            th:value="${p.id}"
+                            th:text="${p.name}"
+                            th:selected="(${p.id} == *{province.id})"></option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>ảnh</td>
+            <td>
+                <input type="file" th:field="*{img}">
+            </td>
+        </tr>
+        <tr>
+            <td>
                 <input type="submit" value="sửa">
             </td>
         </tr>
+
     </table>
 </form>
 </body>

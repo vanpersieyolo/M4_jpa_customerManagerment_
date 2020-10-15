@@ -979,71 +979,122 @@ SELECT|sys.sys_config:null
     <table id="307" parent="3" name="hibernate_sequence">
       <Engine>MyISAM</Engine>
     </table>
-    <column id="308" parent="303" name="id">
+    <table id="308" parent="3" name="province">
+      <Engine>MyISAM</Engine>
+    </table>
+    <table id="309" parent="3" name="province_customer">
+      <Engine>MyISAM</Engine>
+    </table>
+    <column id="310" parent="303" name="id">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="309" parent="303" name="name">
+    <column id="311" parent="303" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="310" parent="303" name="firstName">
+    <column id="312" parent="303" name="firstName">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="311" parent="303" name="lastName">
+    <column id="313" parent="303" name="lastName">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <key id="312" parent="303" name="PRIMARY">
+    <key id="314" parent="303" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="313" parent="304" name="next_val">
+    <column id="315" parent="304" name="next_val">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
     </column>
-    <column id="314" parent="305" name="id">
+    <column id="316" parent="305" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="315" parent="305" name="email">
+    <column id="317" parent="305" name="email">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="316" parent="305" name="name">
+    <column id="318" parent="305" name="name">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <key id="317" parent="305" name="PRIMARY">
+    <key id="319" parent="305" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="318" parent="306" name="id">
+    <column id="320" parent="306" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="319" parent="306" name="firstName">
+    <column id="321" parent="306" name="firstName">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="320" parent="306" name="lastName">
+    <column id="322" parent="306" name="lastName">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <key id="321" parent="306" name="PRIMARY">
+    <column id="323" parent="306" name="province_id">
+      <Position>4</Position>
+      <DataType>bigint|0s</DataType>
+    </column>
+    <index id="324" parent="306" name="FK294was9ua9ahf44gwo41w6mct">
+      <ColNames>province_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="325" parent="306" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="322" parent="307" name="next_val">
+    <column id="326" parent="307" name="next_val">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
     </column>
+    <column id="327" parent="308" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="328" parent="308" name="name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+    </column>
+    <key id="329" parent="308" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="330" parent="309" name="Province_id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="331" parent="309" name="customers_id">
+      <Position>2</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="332" parent="309" name="UK_nv49ms0be1s4tv37iv77svg3y">
+      <ColNames>customers_id</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <index id="333" parent="309" name="FK8qvqso82wcxmby7cpx964gj8k">
+      <ColNames>Province_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="334" parent="309" name="UK_nv49ms0be1s4tv37iv77svg3y">
+      <ColNames>customers_id</ColNames>
+      <UnderlyingIndexName>UK_nv49ms0be1s4tv37iv77svg3y</UnderlyingIndexName>
+    </key>
   </database-model>
 </dataSource>

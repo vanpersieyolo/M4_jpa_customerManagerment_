@@ -6,19 +6,31 @@
 </head>
 <body>
     <a href="/customer/create">thêm mới</a>
+    <form>
+        Search by first name:
+        <input name="s" type="text" th:value="${s}"/>
+        <input type="submit" value="Search"/>
+    </form><br/>
     <table border="1px" cellpadding="10px">
         <tr>
             <th>ID</th>
             <th>firstName</th>
             <th>lastName</th>
+            <th>Province</th>
         </tr>
-        <tr th:each="customer:${customers}">
-            <td th:text="${customer.id}"></td>
-            <td th:text="${customer.firstName}"></td>
-            <td th:text="${customer.lastName}"></td>
-            <td><a th:href="@{'/customer/delete/'+${customer.id}}">delete</a></td>
-            <td><a th:href="@{'/customer/edit/'+${customer.id}}">edit</a></td>
+        <tr th:each="c:${customers}">
+            <td th:text="${c.id}"></td>
+            <td th:text="${c.firstName}"></td>
+            <td th:text="${c.lastName}"></td>
+            <td th:text="${c.province.name}"></td>
+            <td><a th:href="@{'/customer/delete/'+${c.id}}">delete</a></td>
+            <td><a th:href="@{'/customer/edit/'+${c.id}}">edit</a></td>
         </tr>
     </table>
+    <div>
+        <a th:href="@{'/customer'(page=${customers.number - 1},s=${s})}" th:if="${customers.hasPrevious()}">trước</a>
+        <span th:text="${customers.number + 1}"></span>/<span th:text="${customers.totalPages}"></span>
+        <a th:href="@{'/customer'(page=${customers.number + 1},s=${s})}" th:if="${customers.hasNext()}">sau</a>
+    </div>
 </body>
 </html>
